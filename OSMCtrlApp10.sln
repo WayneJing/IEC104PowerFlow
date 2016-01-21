@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OSMCtrlApp", "OSMCtrlApp10.vcxproj", "{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug (GDI+)|Win32 = Debug (GDI+)|Win32
+		Debug (GDI+)|x64 = Debug (GDI+)|x64
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release (GDI+)|Win32 = Release (GDI+)|Win32
+		Release (GDI+)|x64 = Release (GDI+)|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Unicode Debug (GDI+)|Win32 = Unicode Debug (GDI+)|Win32
+		Unicode Debug (GDI+)|x64 = Unicode Debug (GDI+)|x64
+		Unicode Debug|Win32 = Unicode Debug|Win32
+		Unicode Debug|x64 = Unicode Debug|x64
+		Unicode Release (GDI+)|Win32 = Unicode Release (GDI+)|Win32
+		Unicode Release (GDI+)|x64 = Unicode Release (GDI+)|x64
+		Unicode Release|Win32 = Unicode Release|Win32
+		Unicode Release|x64 = Unicode Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug (GDI+)|Win32.ActiveCfg = Debug (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug (GDI+)|Win32.Build.0 = Debug (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug (GDI+)|x64.ActiveCfg = Debug (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug (GDI+)|x64.Build.0 = Debug (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug|Win32.Build.0 = Debug|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug|x64.ActiveCfg = Debug|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Debug|x64.Build.0 = Debug|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release (GDI+)|Win32.ActiveCfg = Release (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release (GDI+)|x64.ActiveCfg = Release (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|Win32.ActiveCfg = Release|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|x64.ActiveCfg = Release|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|x64.Build.0 = Release|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug (GDI+)|Win32.ActiveCfg = Unicode Debug (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug (GDI+)|Win32.Build.0 = Unicode Debug (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug (GDI+)|x64.ActiveCfg = Unicode Debug (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug (GDI+)|x64.Build.0 = Unicode Debug (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug|Win32.ActiveCfg = Unicode Debug|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug|Win32.Build.0 = Unicode Debug|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug|x64.ActiveCfg = Unicode Debug|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug|x64.Build.0 = Unicode Debug|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release (GDI+)|Win32.ActiveCfg = Unicode Release (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release (GDI+)|Win32.Build.0 = Unicode Release (GDI+)|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release (GDI+)|x64.ActiveCfg = Unicode Release (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release (GDI+)|x64.Build.0 = Unicode Release (GDI+)|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release|Win32.ActiveCfg = Unicode Release|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release|x64.ActiveCfg = Unicode Release|x64
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Release|x64.Build.0 = Unicode Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

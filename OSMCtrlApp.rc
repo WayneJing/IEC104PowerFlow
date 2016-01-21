@@ -1,0 +1,857 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// ÖÐÎÄ(¼òÌå£¬ÖÐ¹ú) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_IPVIEW DIALOGEX 0, 0, 152, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 9, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "IPµØÖ·£º",IDC_STATIC,16,28,31,8
+    EDITTEXT        IDC_EDIT1,46,25,89,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "¶Ï¿ª",IDC_BUTTON1,83,50,50,14
+    PUSHBUTTON      "È·ÈÏ",IDC_BUTTON2,16,50,50,14
+END
+
+IDD_POWERDATAVIEW DIALOG 0, 0, 320, 200
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "MS Shell Dlg"
+BEGIN
+    LTEXT           "TODO:  ½«´°Ìå¿Ø¼þ·ÅÖÃÔÚ´Ë¶Ô»°¿òÉÏ¡£",IDC_STATIC,24,42,280,8
+END
+
+IDD_IECSHOWVIEW DIALOG 0, 0, 320, 200
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "MS Shell Dlg"
+BEGIN
+    LTEXT           "TODO:  ½«´°Ìå¿Ø¼þ·ÅÖÃÔÚ´Ë¶Ô»°¿òÉÏ¡£",IDC_STATIC,24,42,280,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_IPVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_POWERDATAVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_IECSHOWVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // ÖÐÎÄ(¼òÌå£¬ÖÐ¹ú) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Ó¢Óï(°®¶ûÀ¼) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENI)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_EIRE
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 216, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About OSMCtrlApp"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20
+    LTEXT           "OSMCtrlApp - A demonstration application using the class ""COSMCtrl"" to display OpenStreetMap tiles",IDC_STATIC,40,10,169,22,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,159,63,50,16,WS_GROUP
+    CONTROL         "Maps © <A HREF=""http://www.openstreetmap.org/"">OpenStreetMap contributors</A>, <A HREF=""www.openstreetmap.org/copyright "">License</A>",IDC_LICENSE_DETAILS,
+                    "SysLink",WS_TABSTOP,40,40,169,14
+END
+
+IDD_TILE_PROPERTIES DIALOGEX 0, 0, 313, 182
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Tile Properties"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Provider:",IDC_STATIC,7,7,30,8
+    LTEXT           "N/A",IDC_PROVIDER,65,7,241,8
+    LTEXT           "URL:",IDC_STATIC,7,22,16,8
+    CONTROL         "N/A",IDC_URL,"SysLink",WS_TABSTOP,65,20,241,9
+    LTEXT           "Cache Path:",IDC_STATIC,7,37,40,8
+    CONTROL         "N/A",IDC_CACHE_PATH,"SysLink",WS_TABSTOP,65,36,241,9
+    LTEXT           "Dimensions:",IDC_STATIC,7,52,39,8
+    LTEXT           "N/A",IDC_DIMENSIONS,65,52,241,8
+    LTEXT           "Center Position:",IDC_STATIC,7,67,52,8
+    LTEXT           "N/A",IDC_CENTERPOSITION,65,67,241,8
+    LTEXT           "Coordinates:",IDC_STATIC,7,82,42,8
+    LTEXT           "N/A",IDC_TILE_COORDINATES,65,82,241,8
+    LTEXT           "Rerender URL:",IDC_STATIC,7,97,48,8
+    CONTROL         "N/A",IDC_RERENDER_URL,"SysLink",WS_TABSTOP,64,97,242,9
+    LTEXT           "Status URL:",IDC_STATIC,7,113,39,8
+    CONTROL         "N/A",IDC_STATUS_URL,"SysLink",WS_TABSTOP,65,113,241,9
+    LTEXT           "Date Modified:",IDC_STATIC,7,130,48,8
+    LTEXT           "N/A",IDC_DATE_MODIFIED,65,130,241,8
+    DEFPUSHBUTTON   "OK",IDOK,256,159,50,16,WS_GROUP
+END
+
+IDD_OSMCTRL_OPERATIONS DIALOGEX 0, 0, 279, 150
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Map Operations"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Operation to Perform:",IDC_STATIC,7,15,72,8
+    COMBOBOX        IDC_OPERATION,91,11,179,54,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "To what &zoom level:",IDC_STATIC,7,40,65,8
+    CONTROL         "",IDC_ZOOM_LEVEL,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | WS_TABSTOP,91,32,181,22
+    LTEXT           "Status:",IDC_STATIC,7,62,24,8
+    LTEXT           "",IDC_STATUS_TEXT,42,62,230,8
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,76,265,14
+    PUSHBUTTON      "&Start Operation",ID_START_OPERATION,33,97,101,14
+    PUSHBUTTON      "S&top Operation",ID_STOP_OPERATION,147,97,101,14
+    DEFPUSHBUTTON   "OK",IDCANCEL,222,129,50,14
+END
+
+IDD_GPS_SETTINGS DIALOGEX 0, 0, 245, 162
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "GPS Settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "&Port / Sensor:",IDC_STATIC,7,10,46,8
+    COMBOBOX        IDC_PORT,59,7,179,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Baud Rate:",IDC_STATIC,7,29,37,8
+    COMBOBOX        IDC_BAUDRATE,59,26,120,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Parity:",IDC_STATIC,7,44,22,8
+    COMBOBOX        IDC_PARITY,59,43,120,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Data Bits:",IDC_STATIC,7,61,32,8
+    COMBOBOX        IDC_DATABITS,59,60,120,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Stop Bits:",IDC_STATIC,7,80,32,8
+    COMBOBOX        IDC_STOPBITS,59,78,120,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "&Center the map on the current GPS location",IDC_GPS_CENTER,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,103,155,10
+    CONTROL         "Change the &bearing of the map to match the direction of travel",IDC_GPS_CHANGE_BEARING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,116,217,10
+    CONTROL         "Enable GP&X Track Log",IDC_GPX_TRACKLOG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,129,85,10
+    DEFPUSHBUTTON   "OK",IDOK,188,139,50,16,WS_GROUP
+END
+
+IDD_SEARCH_RESULTS DIALOGEX 0, 0, 313, 182
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Search Results from Nominatim"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Multiple results were returned. Please select the POI to go to:",-1,7,7,203,8
+    LISTBOX         IDC_SEARCH_RESULTS,7,20,299,133,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,256,159,50,16,WS_GROUP
+END
+
+IDD_SEARCH DIALOGEX 0, 0, 327, 74
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Nominatim Search"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Please enter what you would like to search for, examples: 'Alkmaar', 'Regent Street, Cambridge', 'postcode SW1', or 'pubs near Gorey, County Wexford'",-1,7,7,313,20
+    EDITTEXT        IDC_SEARCH,7,30,313,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,270,51,50,16,WS_GROUP
+END
+
+IDD_GOTO_COORDINATES DIALOGEX 0, 0, 215, 94
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Goto Coordinates"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Please specify the map coordinates you want to goto:",IDC_STATIC,7,7,201,12
+    LTEXT           "&Longitude:",IDC_STATIC,7,28,38,8
+    EDITTEXT        IDC_LONGITUDE_DEGREES,50,25,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LONGITUDE_MINUTES,103,25,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LONGITUDE_SECONDS,156,25,40,14,ES_AUTOHSCROLL
+    LTEXT           "L&atitude:",IDC_STATIC,7,48,37,8
+    EDITTEXT        IDC_LATITUDE_DEGREES,50,45,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LATITUDE_MINUTES,103,45,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LATITUDE_SECONDS,156,45,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,158,71,50,16,WS_GROUP
+    LTEXT           "°",IDC_STATIC,93,26,8,8
+    LTEXT           "°",IDC_STATIC,93,46,8,8
+    LTEXT           "'",IDC_STATIC,147,46,8,8
+    LTEXT           "'",IDC_STATIC,147,27,8,8
+    LTEXT           """",IDC_STATIC,199,27,8,8
+    LTEXT           """",IDC_STATIC,199,46,8,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_TILE_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_OSMCTRL_OPERATIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 272
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_GPS_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 238
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 155
+    END
+
+    IDD_SEARCH_RESULTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 320
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDD_GOTO_COORDINATES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENI)\r\n"
+    "LANGUAGE 9, 6\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\OSMCtrlApp.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\OSMCtrlApp.ico"
+IDR_OSMCtrlAppTYPE      ICON                    "res\\OSMCtrlAppDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_DRAW_NORMAL
+    BUTTON      ID_DRAW_SELECTIONRECTANGLE
+    BUTTON      ID_DRAW_MARKER
+    BUTTON      ID_DRAW_POLYLINE
+    BUTTON      ID_DRAW_POLYGON
+    BUTTON      ID_DRAW_CIRCLE
+    BUTTON      ID_DRAW_ROTATE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Import GPX File...",         ID_FILE_IMPORTGPXFILE
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "Zoom"
+        BEGIN
+            MENUITEM "0",                           ID_ZOOM_0
+            MENUITEM "1",                           ID_ZOOM_1
+            MENUITEM "2",                           ID_ZOOM_2
+            MENUITEM "3",                           ID_ZOOM_3
+            MENUITEM "4",                           ID_ZOOM_4
+            MENUITEM "5",                           ID_ZOOM_5
+            MENUITEM "6",                           ID_ZOOM_6
+            MENUITEM "7",                           ID_ZOOM_7
+            MENUITEM "8",                           ID_ZOOM_8
+            MENUITEM "9",                           ID_ZOOM_9
+            MENUITEM "10",                          ID_ZOOM_10
+            MENUITEM "11",                          ID_ZOOM_11
+            MENUITEM "12",                          ID_ZOOM_12
+            MENUITEM "13",                          ID_ZOOM_13
+            MENUITEM "14",                          ID_ZOOM_14
+            MENUITEM "15",                          ID_ZOOM_15
+            MENUITEM "16",                          ID_ZOOM_16
+            MENUITEM "17",                          ID_ZOOM_17
+            MENUITEM "18",                          ID_ZOOM_18
+        END
+        POPUP "Providers"
+        BEGIN
+            MENUITEM "Mapnik",                      ID_PROVIDERS_MAPNIK
+            MENUITEM "Cyclemap",                    ID_PROVIDERS_CYCLEMAP
+            MENUITEM "Mapquest OSM",                ID_PROVIDERS_MAPQUEST_OSM
+            MENUITEM "Mapquest Open Aerial",        ID_PROVIDERS_MAPQUEST_OPEN_AERIAL
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Cache",                 ID_VIEW_CLEARCACHE
+        MENUITEM "View Tile Properties\tAlt+Enter", ID_VIEW_TILEPROPERTIES
+        MENUITEM "Refresh\tF5",                 ID_VIEW_REFRESH
+        MENUITEM "Refresh Tile",                ID_VIEW_REFRESHTILE
+        MENUITEM "Map Operations",              ID_VIEW_MAPOPERATIONS
+        MENUITEM "GPS Settings",                ID_VIEW_GPSSETTINGS
+        MENUITEM "Address Lookup",              ID_VIEW_ADDRESSLOOKUP
+        MENUITEM "Goto Coordinates\tCtrl+G",    ID_VIEW_GOTOCOORDINATES
+        MENUITEM "Search...\tCtrl+F",           ID_VIEW_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "Auto Download Tiles",         ID_VIEW_AUTODOWNLOADTILES
+        MENUITEM "Download Tiles from center outwards", ID_VIEW_DOWNLOADTILESFROMCENTEROUTWARDS
+        MENUITEM "Draw Scroll Rose",            ID_VIEW_DRAWSCROLLROSE
+        MENUITEM "Draw Zoom Bar",               ID_VIEW_DRAWZOOMBAR
+        MENUITEM "Draw Center Crosshairs",      ID_VIEW_DRAWCENTERCROSSHAIRS
+        MENUITEM "Draw Zoom Bar as Slider control", ID_VIEW_DRAWZOOMBARASSLIDERCONTROL
+        MENUITEM "Use Transparency for Zoom Bar", ID_VIEW_USETRANSPARENCYFORZOOMBAR
+        MENUITEM "Draw Scale Bar",              ID_VIEW_DRAWSCALEBAR
+        MENUITEM "Draw Tile Outlines",          ID_VIEW_DRAWTILEOUTLINES
+        MENUITEM "Allow Drag",                  ID_VIEW_ALLOWDRAG
+        MENUITEM "Allow Keyboard",              ID_VIEW_ALLOWKEYBOARD
+        MENUITEM "Allow Mouse Zoom",            ID_VIEW_ALLOWMOUSEZOOM
+        MENUITEM "Allow Double Click Zoom",     ID_VIEW_ALLOWDOUBLECLICKZOOM
+        MENUITEM "Allow Previous Zoom Stretch", ID_VIEW_ALLOWPREVIOUSZOOMSTRETCH
+        MENUITEM "Allow Next Zoom Squeeze",     ID_VIEW_ALLOWNEXTZOOMSQUEEZE
+        MENUITEM "Allow Animations",            ID_VIEW_ALLOWANIMATIONS
+        MENUITEM SEPARATOR
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Draw"
+    BEGIN
+        MENUITEM "&Normal",                     ID_DRAW_NORMAL
+        MENUITEM "&Selection Rectangle",        ID_DRAW_SELECTIONRECTANGLE
+        MENUITEM "&Marker",                     ID_DRAW_MARKER
+        MENUITEM "&Polygon",                    ID_DRAW_POLYGON
+        MENUITEM "Poly&line",                   ID_DRAW_POLYLINE
+        MENUITEM "&Circle",                     ID_DRAW_CIRCLE
+        MENUITEM "&Rotate",                     ID_DRAW_ROTATE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About OSMCtrlApp...",        ID_APP_ABOUT
+    END
+END
+
+IDR_POPUP_VIEW MENU
+BEGIN
+    POPUP "___"
+    BEGIN
+        MENUITEM "Clear Cache",                 ID_VIEW_CLEARCACHE
+        MENUITEM "View Tile Properties\tAlt+Enter", ID_VIEW_TILEPROPERTIES
+        MENUITEM "Refresh\tF5",                 ID_VIEW_REFRESH
+        MENUITEM "Refresh Tile",                ID_VIEW_REFRESHTILE
+        MENUITEM "Map Operations",              ID_VIEW_MAPOPERATIONS
+        MENUITEM "GPS Settings",                ID_VIEW_GPSSETTINGS
+        MENUITEM "Address Lookup",              ID_VIEW_ADDRESSLOOKUP
+        MENUITEM "Goto Coordinates\tCtrl+G",    ID_VIEW_GOTOCOORDINATES
+        MENUITEM "Search...\tCtrl+F",           ID_VIEW_SEARCH
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "G",            ID_VIEW_GOTOCOORDINATES, VIRTKEY, CONTROL, NOINVERT
+    VK_F5,          ID_VIEW_REFRESH,        VIRTKEY, NOINVERT
+    "F",            ID_VIEW_SEARCH,         VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_VIEW_SEARCH,         VIRTKEY, NOINVERT
+    VK_RETURN,      ID_VIEW_TILEPROPERTIES, VIRTKEY, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,19,0
+ PRODUCTVERSION 1,0,19,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "PJ Naughter"
+            VALUE "FileDescription", "OSMCtrlApp"
+            VALUE "FileVersion", "1.0.19.0"
+            VALUE "InternalName", "OSMCtrlApp.exe"
+            VALUE "LegalCopyright", "Copyright (c) PJ Naughter 2009 - 2014.  All rights reserved."
+            VALUE "OriginalFilename", "OSMCtrlApp.exe"
+            VALUE "ProductName", "OSMCtrlApp"
+            VALUE "ProductVersion", "1.0.19.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_OSMCTRL_OPERATIONS DLGINIT
+BEGIN
+    IDC_OPERATION, 0x403, 48, 0
+0x6143, 0x6863, 0x2065, 0x6954, 0x656c, 0x2073, 0x6f28, 0x6c6e, 0x2079, 
+0x6874, 0x736f, 0x2065, 0x6f6e, 0x2074, 0x6c61, 0x6572, 0x6461, 0x2079, 
+0x6f64, 0x6e77, 0x6f6c, 0x6461, 0x6465, 0x0029, 
+    IDC_OPERATION, 0x403, 49, 0
+0x6143, 0x6863, 0x2065, 0x6954, 0x656c, 0x2073, 0x6928, 0x636e, 0x756c, 
+0x6964, 0x676e, 0x7420, 0x6f68, 0x6573, 0x6120, 0x726c, 0x6165, 0x7964, 
+0x6420, 0x776f, 0x6c6e, 0x616f, 0x6564, 0x2964, "\000" 
+    IDC_OPERATION, 0x403, 22, 0
+0x6f46, 0x6372, 0x2065, 0x614d, 0x6e70, 0x6b69, 0x7220, 0x7265, 0x6e65, 
+0x6564, 0x0072, 
+    IDC_OPERATION, 0x403, 20, 0
+0x6544, 0x656c, 0x6574, 0x4320, 0x6361, 0x6568, 0x2064, 0x6954, 0x656c, 
+0x0073, 
+    0
+END
+
+IDD_GPS_SETTINGS DLGINIT
+BEGIN
+    IDC_BAUDRATE, 0x403, 3, 0
+0x3537, "\000" 
+    IDC_BAUDRATE, 0x403, 4, 0
+0x3131, 0x0030, 
+    IDC_BAUDRATE, 0x403, 4, 0
+0x3331, 0x0034, 
+    IDC_BAUDRATE, 0x403, 4, 0
+0x3531, 0x0030, 
+    IDC_BAUDRATE, 0x403, 4, 0
+0x3033, 0x0030, 
+    IDC_BAUDRATE, 0x403, 4, 0
+0x3036, 0x0030, 
+    IDC_BAUDRATE, 0x403, 5, 0
+0x3231, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 5, 0
+0x3831, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 5, 0
+0x3432, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 5, 0
+0x3834, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 5, 0
+0x3237, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 5, 0
+0x3639, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 6, 0
+0x3431, 0x3034, 0x0030, 
+    IDC_BAUDRATE, 0x403, 6, 0
+0x3931, 0x3032, 0x0030, 
+    IDC_BAUDRATE, 0x403, 6, 0
+0x3833, 0x3034, 0x0030, 
+    IDC_BAUDRATE, 0x403, 6, 0
+0x3735, 0x3036, 0x0030, 
+    IDC_BAUDRATE, 0x403, 7, 0
+0x3131, 0x3235, 0x3030, "\000" 
+    IDC_BAUDRATE, 0x403, 7, 0
+0x3231, 0x3038, 0x3030, "\000" 
+    IDC_PARITY, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_PARITY, 0x403, 4, 0
+0x644f, 0x0064, 
+    IDC_PARITY, 0x403, 5, 0
+0x7645, 0x6e65, "\000" 
+    IDC_PARITY, 0x403, 5, 0
+0x614d, 0x6b72, "\000" 
+    IDC_PARITY, 0x403, 6, 0
+0x7053, 0x6361, 0x0065, 
+    IDC_DATABITS, 0x403, 2, 0
+0x0034, 
+    IDC_DATABITS, 0x403, 2, 0
+0x0035, 
+    IDC_DATABITS, 0x403, 2, 0
+0x0036, 
+    IDC_DATABITS, 0x403, 2, 0
+0x0037, 
+    IDC_DATABITS, 0x403, 2, 0
+0x0038, 
+    IDC_STOPBITS, 0x403, 2, 0
+0x0031, 
+    IDC_STOPBITS, 0x403, 4, 0
+0x2e31, 0x0035, 
+    IDC_STOPBITS, 0x403, 2, 0
+0x0032, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+IDB_DEFAULT_MARKER      PNG                     "res\\icon1.png"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Demo Application for COSMCtrl class\n\nOSMCtrlApp\n\n\nOSMCtrlApp.Document\nOSMCtrlApp.Document"
+    IDS_CLICK_ON_MAP_FOR_ADDRESSLOOKUP 
+                            "Please click on the part of the map where you want to do an Address Lookup"
+    IDS_OSMCTRL_SCALE_BAR_METERS "%1 Meters"
+    IDS_OSMCTRL_SCALE_BAR_KILOMETERS "%1 Kilometers"
+    IDS_OSMCTRL_SCALE_BAR_MILES "%1 Miles"
+    IDS_OSMCTRL_TILE_NOT_AVAILABLE "Tile not available"
+    IDS_OSMCTRL_NO_VALID_SELECTION 
+                            "To use the Map Operations dialog, you need to have a selection rectangle created on your map"
+    IDS_OSMCTRL_TILE_NOT_AVAILABLE2 "Tile not available"
+    IDS_OSMCTRL_MAP_OPERATIONS_UPDATE_ZOOM3 
+                            "Will be using zoom levels %1 to %2, Tiles: %3"
+    IDS_OSMCTRL_MAP_OPERATIONS_UPDATE_ZOOM2 
+                            "Will be using zoom level %1 only, Tiles: %2"
+    IDS_CLICK_ON_MAP_FOR_REFRESHTILE 
+                            "Please click on the part of the map where you want to refresh the tile"
+    IDS_OSMCTRL_DELETE_FILES_STATS "Files deleted: %1, Files not deleted: %2"
+    IDS_OSMCTRL_DOWNLOAD_TILES_STATS 
+                            "Tiles downloaded: %1, Tiles not downloaded: %2"
+    IDS_OSMCTRL_RERENDER_TILES_STATS 
+                            "Tiles rerendered: %1, Tiles not rerendered: %2"
+    IDS_OSMCTRL_COPYRIGHT   "<A HREF=""http://www.openstreetmap.org/"">© OpenStreetMap contributors</A>, <A HREF=""www.openstreetmap.org/copyright "">License</A>"
+    IDS_NO_GPS_PORT         "Do not use a GPS device"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "OSMCtrlApp"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_POSITION   "Position: XX° XX' XX"" X XXX° XX' XX"" X"
+    ID_INDICATOR_LENGTH     "Length: XXXXX.XXX Kilometers, Bearing: XX° XX'"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_ZOOM_0               "Zoom to this level"
+    ID_ZOOM_1               "Zoom to this level"
+    ID_ZOOM_2               "Zoom to this level"
+    ID_ZOOM_3               "Zoom to this level"
+    ID_ZOOM_4               "Zoom to this level"
+    ID_ZOOM_5               "Zoom to this level"
+    ID_ZOOM_6               "Zoom to this level"
+    ID_ZOOM_7               "Zoom to this level"
+    ID_ZOOM_8               "Zoom to this level"
+    ID_ZOOM_9               "Zoom to this level"
+    ID_ZOOM_10              "Zoom to this level"
+    ID_ZOOM_11              "Zoom to this level"
+END
+
+STRINGTABLE
+BEGIN
+    ID_ZOOM_12              "Zoom to this level"
+    ID_ZOOM_13              "Zoom to this level"
+    ID_ZOOM_14              "Zoom to this level"
+    ID_ZOOM_15              "Zoom to this level"
+    ID_ZOOM_16              "Zoom to this level"
+    ID_ZOOM_17              "Zoom to this level"
+    ID_ZOOM_18              "Zoom to this level"
+    ID_VIEW_AUTODOWNLOADTILES "Download tiles as required"
+    ID_PROVIDERS_MAPNIK     "Use the Mapnik map provider"
+    ID_VIEW_CLEARCACHE      "Clear downloaded tiles"
+    ID_PROVIDERS_CYCLEMAP   "Use the Cyclemap map provider"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_REFRESH         "Force a refresh of the current view"
+    ID_VIEW_DRAWSCROLLROSE  "Draw the Scroll Rose"
+    ID_VIEW_DRAWZOOMBAR     "Draw the Zoom Bar"
+    ID_VIEW_ALLOWDRAG       "Allow the map to be dragged"
+    ID_VIEW_ALLOWKEYBOARD   "Allow keyboard to zoom in/out and scroll"
+    ID_VIEW_ALLOWMOUSEZOOM  "Allow the mouse to change the zoom (via wheel)"
+    ID_VIEW_DRAWSCALEBAR    "Draw a simple legend which indicates the scale of the map"
+    ID_VIEW_ALLOWPREVIOUSZOOMSTRETCH 
+                            "Use stretched images from the previous zoom level if not available at this zoom level"
+    ID_VIEW_ALLOWNEXTZOOMSQUEEZE 
+                            "Use squeezed images from the next zoom level if not available at this zoom level"
+    ID_VIEW_DOWNLOADTILESFROMCENTEROUTWARDS 
+                            "Download tiles at the center of the map first before tiles toward the edge"
+    ID_VIEW_USETRANSPARENCYFORZOOMBAR 
+                            "Draw the Zoom Bar using a transparent effect"
+    ID_VIEW_DRAWTILEOUTLINES "Draw a rectangle around all tiles"
+    ID_VIEW_TILEPROPERTIES  "View the properties for the tile at the cursor position"
+    ID_VIEW_DRAWZOOMBARASSLIDERCONTROL 
+                            "Draw the zoom bar as a Windows slider control"
+    ID_VIEW_ALLOWDOUBLECLICKZOOM 
+                            "Allow the mouse to change the zoom (via double click)"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_REFRESHTILE     "Force a refresh of a tile"
+    ID_DRAW_NORMAL          "Normal mode\nNormal"
+    ID_DRAW_POLYGON         "Polygon creation mode\nPolygon"
+    ID_DRAW_POLYLINE        "Polyline creation mode\nPolyline"
+    ID_DRAW_ROTATE          "Rotate mode\nRotate"
+    ID_DRAW_MARKER          "Marker creation mode\nMarker"
+    ID_DRAW_SELECTIONRECTANGLE "Selection rectangle mode\nSelection"
+    ID_VIEW_MAPOPERATIONS   "Show the Map Operations dialog"
+    ID_DRAW_CIRCLE          "Circle creation mode\nCircle"
+    ID_VIEW_DRAWCENTERCROSSHAIRS 
+                            "Show the center of the map with a crosshairs"
+    ID_VIEW_GPSSETTINGS     "Show the GPS Settings dialog"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FAIL_OPEN_GPS       "Failed to open the GPS device, Error:%1"
+    IDS_OLE_INIT_FAILED     "Failed to initialize OLE"
+    IDS_FAIL_NOMINATIM_ADDRESS_LOOKUP 
+                            "Failed to perform Nominatim Address Lookup, Error:%1"
+    IDS_FAIL_NOMINATIM_SEARCH "Failed to perform Nominatim Search, Error:%1"
+    IDS_NOMINATIM_SEARCH_NO_RESULTS "No results were found"
+    IDS_CLICK_ON_MAP_FOR_TILEPROPERTIES 
+                            "Please click on the part of the map where you want the tile properties"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_ALLOWANIMATIONS "Show transition animations"
+    ID_FILE_IMPORTGPXFILE   "Import tracks from a GPX file"
+    ID_PROVIDERS_MAPQUEST   "Use the Mapquest OSM map provider"
+    ID_VIEW_ADDRESSLOOKUP   "Perform a reverse geocoding to generate an address from a location"
+    ID_VIEW_SEARCH          "Search for points of interest on the map"
+    ID_VIEW_GOTOCOORDINATES "Goto a specific set of map coordinates"
+END
+
+STRINGTABLE
+BEGIN
+    ID_PROVIDERS_MAPQUEST_OSM "Use the Mapquest OSM map provider"
+    ID_PROVIDERS_MAPQUEST_OPEN_AERIAL 
+                            "Use the Mapquest Open Aerial map provider"
+END
+
+#endif    // Ó¢Óï(°®¶ûÀ¼) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENI)
+LANGUAGE 9, 6
+#pragma code_page(1252)
+#include "res\OSMCtrlApp.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
