@@ -1,7 +1,7 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ 生成的包含文件。
 // 供 OSMCtrlApp.rc 使用
-//
+////
 #define IDD_ABOUTBOX                    100
 #define IDD_TILE_PROPERTIES             101
 #define IDD_IPVIEW                      104
@@ -68,10 +68,40 @@
 #define IDC_EDIT1                       1023
 #define IDC_LONGITUDE_SECONDS           1024
 #define IDC_BUTTON1                     1024
+#define IDC_EDIT2                       1024
 #define IDC_LATITUDE_DEGREES            1025
 #define IDC_BUTTON2                     1025
+#define IDC_LIST1                       1025
+#define IDC_EDIT3                       1025
 #define IDC_LATITUDE_MINUTES            1026
+#define IDC_EDIT4                       1026
 #define IDC_LATITUDE_SECONDS            1027
+#define IDC_EDIT5                       1027
+#define IDC_EDIT6                       1028
+#define IDC_EDIT7                       1029
+#define IDC_EDIT8                       1030
+#define IDC_EDIT9                       1031
+#define IDC_EDIT10                      1032
+#define IDC_EDIT11                      1033
+#define IDC_EDIT12                      1034
+#define IDC_EDIT13                      1035
+#define IDC_EDIT14                      1036
+#define IDC_EDIT15                      1037
+#define IDC_EDIT16                      1038
+#define IDC_EDIT17                      1039
+#define IDC_EDIT18                      1040
+#define IDC_EDIT19                      1041
+#define IDC_EDIT20                      1042
+#define IDC_EDIT21                      1043
+#define IDC_EDIT22                      1044
+#define IDC_EDIT23                      1045
+#define IDC_EDIT24                      1046
+#define IDC_EDIT25                      1047
+#define IDC_EDIT26                      1048
+#define IDC_EDIT27                      1049
+#define IDC_EDIT28                      1050
+#define IDC_EDIT29                      1051
+#define IDC_EDIT30                      1052
 #define ID_ZOOM_0                       32772
 #define ID_ZOOM_1                       32773
 #define ID_ZOOM_2                       32774
@@ -138,7 +168,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        133
 #define _APS_NEXT_COMMAND_VALUE         32854
-#define _APS_NEXT_CONTROL_VALUE         1025
+#define _APS_NEXT_CONTROL_VALUE         1026
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

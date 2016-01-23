@@ -1,10 +1,15 @@
 #pragma once
+//
+#define WM_SHOWIECDATA WM_USER + 413
+
 
 #include "OSMCtrlAppView.h"
 #include "IPView.h"
 #include "PowerDataView.h"
 #include "IEC104Extention.h"
 #include "IECShowView.h"
+#include <vector>
+
 
 class CMainFrame : public CFrameWnd
 {
@@ -43,6 +48,14 @@ protected:
   afx_msg void OnUpdatePosition(CCmdUI* pCmdUI);
   afx_msg void OnUpdateLength(CCmdUI* pCmdUI);
   DECLARE_MESSAGE_MAP()
+  afx_msg LRESULT OnInfonotify(WPARAM wParam, LPARAM lParam);
+ // void CMainFrame::ReceiveIEC(UINT_PTR nIDEvent);
+public:
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	std::vector<CString> v;
+	std::vector<std::vector<CString>>v_powerflow;
+	int n_pq = 0;
+	int n_station = 0;
 };
 
 

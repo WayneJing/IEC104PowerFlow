@@ -12,7 +12,7 @@
 #include "OSMMyStruct.h"
 #include <map>
 #include <vector>
-#include <stdio.h>
+#include <stdio.h>//
 #include <sstream>
 
 
@@ -37,6 +37,7 @@ public:
   COSMCtrl& GetCtrl() { return m_ctrlOSM; };
   int FindBusNumByI(double bus_i, std::vector<StationStruct> m_Stations); //Find the father number  of the bus_i(0,1,2...)
   void UpdateStations(int timeNumber); // Fetch stations in doc and show on map
+  double m_allload[24];
 
 // Operations
 public:

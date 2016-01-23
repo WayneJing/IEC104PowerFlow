@@ -1,6 +1,7 @@
-#include <stdafx.h>
+#include "stdafx.h"
 #include "IEC104Extention.h"
-
+#include "MainFrm.h"
+//
 iec104ex_class::iec104ex_class()
 {
 	mEnding = false;
@@ -106,8 +107,9 @@ void iec104ex_class::commandActTermIndication( iec_obj *obj )
 
 void iec104ex_class::dataIndication( iec_obj *obj, int numpoints )
 {
-	HWND hMainWindow = AfxGetApp()->m_pMainWnd->m_hWnd;
-	::SendMessage( hMainWindow, WM_INFONOTIFY, (WPARAM )obj, (LPARAM)numpoints);
+	CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	pMF->SendMessage( WM_INFONOTIFY, (WPARAM )obj, (LPARAM)numpoints);
+	//pMF->pIECSView-> SendMessage(WM_SHOWIECDATA, (WPARAM)obj, (LPARAM)numpoints);
 	return;
 }
 

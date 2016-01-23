@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OSMCtrlApp", "OSMCtrlApp10.vcxproj", "{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}"
 EndProject
 Global
@@ -34,6 +36,7 @@ Global
 		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release (GDI+)|Win32.ActiveCfg = Release (GDI+)|Win32
 		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release (GDI+)|x64.ActiveCfg = Release (GDI+)|x64
 		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|Win32.ActiveCfg = Release|Win32
+		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|Win32.Build.0 = Release|Win32
 		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|x64.ActiveCfg = Release|x64
 		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Release|x64.Build.0 = Release|x64
 		{6A8DF18C-7C88-4C2C-AEF1-1EAD69A4261D}.Unicode Debug (GDI+)|Win32.ActiveCfg = Unicode Debug (GDI+)|Win32

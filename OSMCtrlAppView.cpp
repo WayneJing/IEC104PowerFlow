@@ -414,6 +414,26 @@ int COSMCtrlAppView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	  branchdataArray.push_back(v);  // add the 1D array to the 2D array
   }
   in1.close();
+  ifstream in2("load_profile.csv");
+  vector< vector<string> > loadArray;  // the 2D array
+  //vector<string> v;                // array of values for one line only
+
+  while (getline(in2, line)) {  // get next line in file
+	  v.clear();
+	  stringstream ss(line);
+
+	  while (getline(ss, field, ',')) { // break line into comma delimitted fields
+		  v.push_back(field);  // add each field to the 1D array
+	  }
+	  loadArray.push_back(v);  // add the 1D array to the 2D array
+  }
+  in2.close();
+  for (int i = 0; i < 24; i++)
+  {
+	  m_allload[i] = 0;
+	  for (int j = 1; j < loadArray.size(); ++j)
+		  m_allload[i] += atof(loadArray[j][i + 1].c_str());
+  }
 
   COSMCtrlAppDoc *pDoc = GetDocument();
   /*put bus data*/
@@ -429,7 +449,20 @@ int COSMCtrlAppView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	  station.volGrade = atof(busdataArray[i][5].c_str());
 	  station.father = atof(busdataArray[i][6].c_str());
 	  station.pd_max = atof(busdataArray[i][4].c_str());
-	  pDoc->m_Stations.push_back(station);
+	  int mm;
+	  mm = -1;
+	  for (int k = 1; k < loadArray.size(); ++k)
+		  if (station.bus_i == atof(loadArray[k][0].c_str()))
+		  {
+			  mm = k;
+			  break;
+		  }
+	  for (int k = 0; k < 24; ++k)
+		  if (mm != -1)
+			  station.load[k] = station.pd_max*atof(loadArray[mm][k + 1].c_str());
+		  else station.load[k] = 0;
+		  pDoc->m_Stations.push_back(station);
+	
   }
 
   BranchStruct branch;
@@ -1404,7 +1437,7 @@ void COSMCtrlAppView::OnViewGPSSettings()
     m_GPSStopBits = static_cast<GPSCom2::GPS_STOP_BITS>(dlg.m_nStopBits);
     m_bGPSCenter = (dlg.m_nGPSCenter != 0);
     m_bSensor = dlg.m_bSensor;
-    m_bChangeBearingOfMap = dlg.m_bChangeBearingOfMap;
+    m_bChangeBearingOfMap = dlg.m_bChangeBearingOfMap;//
 
     //Save the track log if we have just turned it off
     CString sTrackLogFilename;
@@ -2339,7 +2372,8 @@ void COSMCtrlAppView::UpdateStations(int timeNumber)
 		//sampleCircle.m_nMaxZoomLevel = 18;
 		//CString tooltips;
 		//tooltips.Format(_T("%d"), station.busNumber);
-		sampleCircle.m_sToolTipText.Format(_T("Name: %s, CR: %f"), station.busName, 0);
+		float fcr = 0;
+		sampleCircle.m_sToolTipText.Format(_T("Name: %s, CR: %f"), station.busName, fcr);
 		sampleCircle.m_bDraggable = FALSE; //Allow the circle to be draggable
 		sampleCircle.m_bEditable = TRUE; //Allow the circle to be editable
 		m_ctrlOSM.m_Circles.push_back(sampleCircle);

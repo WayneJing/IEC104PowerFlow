@@ -1,13 +1,13 @@
 // IPView.cpp : 实现文件
 //
-
+//
 #include "stdafx.h"
 #include "OSMCtrlApp.h"
 #include "IPView.h"
 #include "MainFrm.h"
 
 // CIPView
-
+//
 IMPLEMENT_DYNCREATE(CIPView, CFormView)
 
 CIPView::CIPView()
@@ -68,6 +68,8 @@ void CIPView::OnBnClickedButton2()
 	CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 	pMF->ie.setSecondaryIP(ipaddress);
 
+	SetTimer(1, 100, 0);
+
 }
 
 
@@ -81,5 +83,6 @@ void CIPView::OnBnClickedButton1()
 	pMF->ie.setSecondaryIP("0");
 
 	pBoxOne->SetWindowText(_T("请输入IP地址"));
+	KillTimer(1);
 
 }

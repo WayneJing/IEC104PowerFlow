@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "iec104_class.h"
-
+//
 #ifndef __IEC104EXTENTION_H
 #define __IEC104EXTENTION_H
 
-#define WM_INFONOTIFY WM_USER + 12
+#define WM_INFONOTIFY WM_USER + 412
+
 
 class iec104ex_class:public iec104_class{
 

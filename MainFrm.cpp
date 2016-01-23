@@ -4,7 +4,8 @@
 #include "OSMCtrlAppDoc.h"
 #include "OSMCtrlAppView.h"
 #include "IECShowView.h"
-
+#include "OSMCtrlAppDoc.h"
+//
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -15,6 +16,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
   ON_WM_CREATE()
   ON_UPDATE_COMMAND_UI(ID_INDICATOR_POSITION, OnUpdatePosition)
   ON_UPDATE_COMMAND_UI(ID_INDICATOR_LENGTH, OnUpdateLength)
+  ON_MESSAGE(WM_INFONOTIFY, &CMainFrame::OnInfonotify)
+  ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -268,9 +271,53 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	pIPView = (CIPView*)m_splitter1.GetPane(0, 0);
 	pOSMVIew = (COSMCtrlAppView*)m_splitter2.GetPane(1, 0);
 	pPowerDView = (CPowerDataView*)m_splitter2.GetPane(0, 0);
-	pIECSView = (CIECShowView*)m_splitter.GetPane(0, 0);
+	pIECSView = (CIECShowView*)m_splitter.GetPane(0, 1);
 
 	return TRUE;
 
 	return CFrameWnd::OnCreateClient(lpcs, pContext);
+}
+
+afx_msg LRESULT CMainFrame::OnInfonotify(WPARAM wParam, LPARAM lParam)
+{
+	CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	COSMCtrlAppDoc* pDoc;
+	iec_obj iec;
+
+	for (int i = 0; i < lParam; i++)
+	{
+		iec = *((iec_obj*)wParam + i);
+		float m = iec.value;
+		CString str;
+		str.Format(_T("%f"),m);
+		v.push_back(str);
+		n_pq++;
+		if (n_pq == 2)
+		{
+			v_powerflow.push_back(v);
+			v.clear();
+			n_station++;
+			n_pq = 0;
+		}
+		if (n_station==15)
+		{
+			pMF->pIECSView->SendMessage(WM_SHOWIECDATA,(WPARAM)&v_powerflow,(LPARAM)n_station);
+			v_powerflow.clear();
+			n_station = 0;
+		}
+	}
+	
+	return 0;
+}
+
+
+void CMainFrame::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO:  在此添加消息处理程序代码和/或调用默认值
+	if (nIDEvent==1)
+	{
+		
+	}
+	
+
 }
