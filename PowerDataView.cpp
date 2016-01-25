@@ -9,7 +9,7 @@
 // CPowerDataView
 
 IMPLEMENT_DYNCREATE(CPowerDataView, CFormView)
-
+ 
 CPowerDataView::CPowerDataView()
 	: CFormView(CPowerDataView::IDD)
 {

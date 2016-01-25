@@ -15,7 +15,7 @@ protected:
 public:
 	enum { IDD = IDD_IECSHOWVIEW };
 #ifdef _DEBUG
-	virtual void AssertValid() const;
+	virtual void AssertValid() const; 
 #ifndef _WIN32_WCE
 	virtual void Dump(CDumpContext& dc) const;
 #endif

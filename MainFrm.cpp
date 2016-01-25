@@ -28,7 +28,11 @@ static UINT indicators[] =
 };
 
 CMainFrame::CMainFrame()
+
 {
+	v_powerflow.resize(M_BRANCHNUM*2);
+	v.resize(M_BRANCHNUM * 2);
+	v_powerdata.resize(M_BRANCHNUM * 2);
 }
 
 CMainFrame::~CMainFrame()
@@ -264,13 +268,13 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_splitter.CreateView(0, 1, RUNTIME_CLASS(CIECShowView), CSize(180, rect.Height()), pContext);
 	m_splitter1.CreateStatic(&m_splitter, 1, 2, WS_CHILD | WS_VISIBLE, m_splitter.IdFromRowCol(0, 0));
 	m_splitter1.CreateView(0, 0, RUNTIME_CLASS(CIPView), CSize(180, rect.Height()), pContext);
-	m_splitter2.CreateStatic(&m_splitter1, 2, 1, WS_CHILD | WS_VISIBLE, m_splitter1.IdFromRowCol(0, 1));
-	m_splitter2.CreateView(0, 0, RUNTIME_CLASS(CPowerDataView), CSize(rect.Width()-360, rect.Height() / 3), pContext);
-	m_splitter2.CreateView(1, 0, RUNTIME_CLASS(COSMCtrlAppView), CSize(rect.Width()-360, rect.Height() * 2 / 3), pContext);
+	//m_splitter2.CreateStatic(&m_splitter1, 2, 1, WS_CHILD | WS_VISIBLE, m_splitter1.IdFromRowCol(0, 1));
+	//m_splitter2.CreateView(0, 0, RUNTIME_CLASS(CPowerDataView), CSize(rect.Width()-360, rect.Height() / 3), pContext);
+	m_splitter1.CreateView(0, 1, RUNTIME_CLASS(COSMCtrlAppView), CSize(rect.Width(), rect.Height() * 2 / 3), pContext);
 
 	pIPView = (CIPView*)m_splitter1.GetPane(0, 0);
-	pOSMVIew = (COSMCtrlAppView*)m_splitter2.GetPane(1, 0);
-	pPowerDView = (CPowerDataView*)m_splitter2.GetPane(0, 0);
+	pOSMVIew = (COSMCtrlAppView*)m_splitter1.GetPane(0, 1);
+	//pPowerDView = (CPowerDataView*)m_splitter2.GetPane(0, 0);
 	pIECSView = (CIECShowView*)m_splitter.GetPane(0, 1);
 
 	return TRUE;
@@ -282,27 +286,51 @@ afx_msg LRESULT CMainFrame::OnInfonotify(WPARAM wParam, LPARAM lParam)
 {
 	CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 	COSMCtrlAppDoc* pDoc;
-	iec_obj iec;
+	//iec_obj iec;
 
+	
 	for (int i = 0; i < lParam; i++)
 	{
-		iec = *((iec_obj*)wParam + i);
-		float m = iec.value;
-		CString str;
-		str.Format(_T("%f"),m);
-		v.push_back(str);
-		n_pq++;
-		if (n_pq == 2)
+		//iec = ((iec_obj*)wParam + i);
+		unsigned int address = ((iec_obj*)wParam + i)->address;
+		int num;
+		/*if ((address >= 6000) && (address<=6031))
 		{
-			v_powerflow.push_back(v);
-			v.clear();
-			n_station++;
-			n_pq = 0;
+			num = maplist(address);
 		}
-		if (n_station==15)
+		else 
 		{
-			pMF->pIECSView->SendMessage(WM_SHOWIECDATA,(WPARAM)&v_powerflow,(LPARAM)n_station);
+			break;
+		}*///正式测试时使用
+		float m = ((iec_obj*)wParam + i)->value;
+		
+		/*v_powerflow[num].Format(_T("%f"), m);
+		v_powerdata[num] = m;
+		v[num] = 1; */ //正式测试时使用
+		  
+		v_powerflow[n_station].Format(_T("%f"), m);
+		v_powerdata[n_station] = m;
+		v[n_station] = 1;
+		n_station++;//仅供本地测试
+		
+		if (Checked())
+		{
+			pOSMVIew->KillTimer(1);
+			//pOSMVIew->Refresh_fake(-M_REFRESNLEVEL);
+			pMF->pIECSView->SendMessage(WM_SHOWIECDATA,(WPARAM)&v_powerflow,M_BRANCHNUM);
+			pMF->pOSMVIew->m_ctrlOSM.m_Polygons.clear();
+			pOSMVIew->PowerFlowArrow(v_powerdata);
+			v_powerdata1.swap(v_powerdata);
+			pOSMVIew->m_offsetlevel = 0;
+			pOSMVIew->SetTimer (1,500,0);
+			//pOSMVIew->m_ctrlOSM.Refresh();
+			pOSMVIew->Refresh_fake(M_REFRESNLEVEL);
 			v_powerflow.clear();
+			v_powerflow.resize(M_BRANCHNUM * 2);
+			v_powerdata.clear();
+			v_powerdata.resize(M_BRANCHNUM * 2);
+			v.clear();
+			v.resize(M_BRANCHNUM * 2);
 			n_station = 0;
 		}
 	}
@@ -320,4 +348,60 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 	}
 	
 
+}
+
+
+int CMainFrame::Checked()
+{
+	for (int i = 0; i < v.size(); i++)
+	{
+		if (v[i]!=1)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+
+int CMainFrame::maplist(unsigned int address)
+{
+	switch (address-6000)
+	{
+	case 0:			return 0;
+	case 1:			return 1;
+	case 2:			return 2;
+	case 3:			return 3;
+	case 4:			return 4;
+	case 5:			return 5;
+	case 6:			return 6;
+	case 7:			return 7;
+	case 8:			return 8;
+	case 9:			return 9;
+	case 10:		return 10;
+	case 11:		return 11;
+	case 12:		return 12;
+	case 13:		return 13;
+	case 14:		return 14;
+	case 15:		return 15;
+	case 16:		return 16;
+	case 17:		return 17;
+	case 18:		return 18;
+	case 19:		return 19;
+	case 20:		return 20;
+	case 21:		return 21;
+	case 22:		return 22;
+	case 23:		return 23;
+	case 24:		return 24;
+	case 25:		return 25;
+	case 26:		return 26;
+	case 27:		return 27;
+	case 28:		return 28;
+	case 29:		return 29;
+	case 30:		return 30;
+	case 31:		return 31;
+	
+	default:		return 0;
+		break;
+	}
 }

@@ -521,6 +521,7 @@ protected:
   virtual void          BuildDownloadArray(CSortedArrayEx<COSMCtrlDownloadTileItem, CompareCOSMCtrlDownloadTileItem, const COSMCtrlDownloadTileItem&>& tilesToDownload, BOOL bForceRefresh);
   
 //Member variables
+
   double                                      m_fZoom;                                                                                 //The current zoom level
   double                                      m_fFinalZoom;                                                                            //The final zoom level (used for animations)
   double                                      m_fDefaultAnimationDuration;                                                             //The default animation duration in seconds
@@ -608,6 +609,8 @@ protected:
 
   friend class COSMCtrlMapOperationsDlg;
   friend class COSMCtrlTimerEventHandler;
+public:
+	double m_zoomlevel;
 };
 
 

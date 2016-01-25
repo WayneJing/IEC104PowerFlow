@@ -6,7 +6,7 @@
 
 #define WM_INFONOTIFY WM_USER + 412
 
-
+ 
 class iec104ex_class:public iec104_class{
 
 public:

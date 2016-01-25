@@ -553,6 +553,7 @@ COSMCtrl::COSMCtrl() : m_fZoom(3),
                        m_bDownloading(FALSE),
                        m_pWinHTTPRequest(NULL),
                        m_fBearingAtTopOfMapMouseCapture(0)
+					   , m_zoomlevel(0)
 {
   m_pWinHTTPRequest = new COSMCtrlWinHTTPRequest;
   m_pWinHTTPRequest->SetOSMCtrl(this);
@@ -772,6 +773,7 @@ BOOL COSMCtrl::SetBearingOfTopOfMap(double fBearingOfTopOfMap, double fAnimation
 
 BOOL COSMCtrl::SetZoom(double fZoom, double fAnimationDuration)
 {
+	m_zoomlevel = fZoom;
   return SetCenterAndZoom(m_CenterPosition, fZoom, fAnimationDuration);
 }
 

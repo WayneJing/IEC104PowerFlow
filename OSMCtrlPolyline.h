@@ -65,7 +65,7 @@ public:
 //Member variables
   std::vector<COSMCtrlNode>           m_Nodes;                //The array of position for this polyline
   float                               m_fLinePenWidth;        //The width of the line to draw
-  double							  relatedBranch;
+  int						  relatedBranch;
 #ifdef COSMCTRL_NOD2D
   Gdiplus::Color                      m_colorPen;             //The color of the pen to use
   Gdiplus::Color                      m_colorNode;            //The color of the node
@@ -99,11 +99,11 @@ public:
   int                                 m_nMinZoomLevel;        //The minimum zoom level at which this polyline appears
   int                                 m_nMaxZoomLevel;        //The max zoom level at which this polyline appears
 
-  double fLon;
-  double fLat;
-  double tLon;
-  double tLat;
-  double voltage;
+  float fLon;
+  float fLat;
+  float tLon;
+  float tLat;
+  float voltage;
 
 
 

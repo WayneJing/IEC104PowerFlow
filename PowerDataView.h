@@ -13,7 +13,7 @@ protected:
 	virtual ~CPowerDataView();
 
 public:
-	enum { IDD = IDD_POWERDATAVIEW };
+	enum { IDD = IDD_POWERDATAVIEW }; 
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 #ifndef _WIN32_WCE

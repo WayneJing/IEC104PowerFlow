@@ -69,6 +69,7 @@ COSMCtrlPolyline::COSMCtrlPolyline(const COSMCtrlPolyline& polyline)
                                                                   #endif
 {
   *this = polyline;
+
 }
 
 COSMCtrlPolyline& COSMCtrlPolyline::operator=(const COSMCtrlPolyline& polyline)
@@ -97,6 +98,12 @@ COSMCtrlPolyline& COSMCtrlPolyline::operator=(const COSMCtrlPolyline& polyline)
   m_bHitTest            = polyline.m_bHitTest;
   m_nMinZoomLevel       = polyline.m_nMinZoomLevel;
   m_nMaxZoomLevel       = polyline.m_nMaxZoomLevel;
+  fLon = polyline.fLon;
+  fLat = polyline.fLat;
+  tLon = polyline.tLon;
+  tLat = polyline.tLat;
+  voltage = polyline.voltage;
+
   
   return *this;
 }

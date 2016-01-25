@@ -1,6 +1,8 @@
 #pragma once
 //
 #define WM_SHOWIECDATA WM_USER + 413
+#define M_BRANCHNUM 16
+#define M_REFRESNLEVEL 0.000000001
 
 
 #include "OSMCtrlAppView.h"
@@ -52,10 +54,14 @@ protected:
  // void CMainFrame::ReceiveIEC(UINT_PTR nIDEvent);
 public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	std::vector<CString> v;
-	std::vector<std::vector<CString>>v_powerflow;
+	std::vector<int> v;
+	std::vector<CString> v_powerflow;
+	std::vector<float> v_powerdata;
+	std::vector<float> v_powerdata1;
 	int n_pq = 0;
 	int n_station = 0;
+	int Checked();
+	int maplist(unsigned int address);
 };
 
 

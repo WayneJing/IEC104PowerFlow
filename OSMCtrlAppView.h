@@ -41,6 +41,7 @@ public:
 
 // Operations
 public:
+	void PowerFlowArrow(std::vector<float> v);
 
 // Overrides
 public:
@@ -223,7 +224,12 @@ protected:
   afx_msg void OnViewAddressLookup();
   afx_msg void OnViewGotoCoordinates();
 
-  friend class CMainFrame;
+  friend class CMainFrame; 
+public:
+	void Refresh_fake(double f);
+	double m_offsetlevel;
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	int sign(double a);
 };
 
 #ifndef _DEBUG  // debug version in OSMCtrlAppView.cpp

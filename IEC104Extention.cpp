@@ -107,7 +107,7 @@ void iec104ex_class::commandActTermIndication( iec_obj *obj )
 
 void iec104ex_class::dataIndication( iec_obj *obj, int numpoints )
 {
-	CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;   
 	pMF->SendMessage( WM_INFONOTIFY, (WPARAM )obj, (LPARAM)numpoints);
 	//pMF->pIECSView-> SendMessage(WM_SHOWIECDATA, (WPARAM)obj, (LPARAM)numpoints);
 	return;

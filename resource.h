@@ -1,18 +1,18 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ 生成的包含文件。
 // 供 OSMCtrlApp.rc 使用
-////
+//
 #define IDD_ABOUTBOX                    100
 #define IDD_TILE_PROPERTIES             101
 #define IDD_IPVIEW                      104
-#define IDD_POWERDATAVIEW               105
+#define IDD_POWERDATAVIEW               105 
 #define IDD_IECSHOWVIEW                 106
 #define IDR_MAINFRAME                   128
 #define IDR_OSMCtrlAppTYPE              129
 #define IDR_POPUP_VIEW                  129
 #define IDD_OSMCTRL_OPERATIONS          129
 #define IDS_CLICK_ON_MAP_FOR_ADDRESSLOOKUP 129
-#define IDS_OSMCTRL_SCALE_BAR_METERS    130
+#define IDS_OSMCTRL_SCALE_BAR_METERS    130 
 #define IDD_GPS_SETTINGS                130
 #define IDS_OSMCTRL_SCALE_BAR_KILOMETERS 131
 #define IDD_SEARCH_RESULTS              131
@@ -102,6 +102,8 @@
 #define IDC_EDIT28                      1050
 #define IDC_EDIT29                      1051
 #define IDC_EDIT30                      1052
+#define IDC_EDIT31                      1053
+#define IDC_EDIT32                      1054
 #define ID_ZOOM_0                       32772
 #define ID_ZOOM_1                       32773
 #define ID_ZOOM_2                       32774

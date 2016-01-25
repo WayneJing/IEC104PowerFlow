@@ -30,10 +30,10 @@ CIECShowView::CIECShowView()
 	v_box.push_back(IDC_EDIT6);
 	v_box.push_back(IDC_EDIT7);
 	v_box.push_back(IDC_EDIT8);
-	v_box.push_back(IDC_EDIT9);
+	v_box.push_back(IDC_EDIT9); 
 	v_box.push_back(IDC_EDIT10);
 	v_box.push_back(IDC_EDIT11);
-	v_box.push_back(IDC_EDIT12);
+	v_box.push_back(IDC_EDIT12); 
 	v_box.push_back(IDC_EDIT13);
 	v_box.push_back(IDC_EDIT14);
 	v_box.push_back(IDC_EDIT15);
@@ -52,6 +52,8 @@ CIECShowView::CIECShowView()
 	v_box.push_back(IDC_EDIT28);
 	v_box.push_back(IDC_EDIT29);
 	v_box.push_back(IDC_EDIT30);
+	v_box.push_back(IDC_EDIT31);
+	v_box.push_back(IDC_EDIT32);
 
 	
 
@@ -93,14 +95,14 @@ void CIECShowView::Dump(CDumpContext& dc) const
 afx_msg LRESULT CIECShowView::OnShowiecdata(WPARAM wParam, LPARAM lParam)
 {
 	
-	std::vector<std::vector<CString>>*pv_data = (std::vector<std::vector<CString>>*)wParam;
-	std::vector<std::vector<CString>>v_data = *pv_data;
+	std::vector<CString>*pv_data = (std::vector<CString>*)wParam;
+	std::vector<CString>v_data = *pv_data;
 	//GetDlgItem(IDC_EDIT1)->SetWindowText(_T("123123"));
 
 	for (int i = 0; i < lParam; i++)
 	{
-		GetDlgItem(v_box[2*i])->SetWindowText(v_data[i][0]);
-		GetDlgItem(v_box[2*i+1])->SetWindowText(v_data[i][1]);
+		GetDlgItem(v_box[2 * i])->SetWindowText(v_data[2 * i]);
+		GetDlgItem(v_box[2 * i + 1])->SetWindowText(v_data[2 * i + 1]);
 	}
 	
 	return 0;

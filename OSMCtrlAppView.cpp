@@ -8,6 +8,8 @@
 #include "SearchDlg.h"
 #include "SearchResultsDlg.h"
 #include "GotoCoordinatesDlg.h"
+#include <math.h>
+#include "MainFrm.h"
 
 
 #ifdef _DEBUG
@@ -183,6 +185,7 @@ BEGIN_MESSAGE_MAP(COSMCtrlAppView, CView)
   ON_COMMAND(ID_VIEW_ADDRESSLOOKUP, &COSMCtrlAppView::OnViewAddressLookup)
   ON_COMMAND(ID_VIEW_SEARCH, &COSMCtrlAppView::OnViewSearch)
   ON_COMMAND(ID_VIEW_GOTOCOORDINATES, &COSMCtrlAppView::OnViewGotoCoordinates)
+  ON_WM_TIMER()
   END_MESSAGE_MAP()
 
 COSMCtrlAppView::COSMCtrlAppView() : m_nGPSPort(0),
@@ -198,6 +201,7 @@ COSMCtrlAppView::COSMCtrlAppView() : m_nGPSPort(0),
                                      m_bSensor(FALSE),
                                      m_bChangeBearingOfMap(FALSE)
 
+									 , m_offsetlevel(0)
 {
   memset(&m_SensorID, 0, sizeof(m_SensorID));
 }
@@ -414,26 +418,26 @@ int COSMCtrlAppView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	  branchdataArray.push_back(v);  // add the 1D array to the 2D array
   }
   in1.close();
-  ifstream in2("load_profile.csv");
-  vector< vector<string> > loadArray;  // the 2D array
-  //vector<string> v;                // array of values for one line only
+  //ifstream in2("load_profile.csv");
+  //vector< vector<string> > loadArray;  // the 2D array
+  ////vector<string> v;                // array of values for one line only
 
-  while (getline(in2, line)) {  // get next line in file
-	  v.clear();
-	  stringstream ss(line);
+  //while (getline(in2, line)) {  // get next line in file
+	 // v.clear();
+	 // stringstream ss(line);
 
-	  while (getline(ss, field, ',')) { // break line into comma delimitted fields
-		  v.push_back(field);  // add each field to the 1D array
-	  }
-	  loadArray.push_back(v);  // add the 1D array to the 2D array
-  }
-  in2.close();
-  for (int i = 0; i < 24; i++)
+	 // while (getline(ss, field, ',')) { // break line into comma delimitted fields
+		//  v.push_back(field);  // add each field to the 1D array
+	 // }
+	 // loadArray.push_back(v);  // add the 1D array to the 2D array
+  //}
+  //in2.close();
+ /* for (int i = 0; i < 24; i++)
   {
 	  m_allload[i] = 0;
 	  for (int j = 1; j < loadArray.size(); ++j)
 		  m_allload[i] += atof(loadArray[j][i + 1].c_str());
-  }
+  }*/
 
   COSMCtrlAppDoc *pDoc = GetDocument();
   /*put bus data*/
@@ -449,7 +453,7 @@ int COSMCtrlAppView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	  station.volGrade = atof(busdataArray[i][5].c_str());
 	  station.father = atof(busdataArray[i][6].c_str());
 	  station.pd_max = atof(busdataArray[i][4].c_str());
-	  int mm;
+	  /*int mm;
 	  mm = -1;
 	  for (int k = 1; k < loadArray.size(); ++k)
 		  if (station.bus_i == atof(loadArray[k][0].c_str()))
@@ -460,7 +464,7 @@ int COSMCtrlAppView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	  for (int k = 0; k < 24; ++k)
 		  if (mm != -1)
 			  station.load[k] = station.pd_max*atof(loadArray[mm][k + 1].c_str());
-		  else station.load[k] = 0;
+		  else station.load[k] = 0;*/
 		  pDoc->m_Stations.push_back(station);
 	
   }
@@ -2307,7 +2311,7 @@ void COSMCtrlAppView::UpdateStations(int timeNumber)
 
 		sampleCircle.m_Position = COSMCtrlPosition(station.longitude, station.latitude);
 		//sampleCircle.m_fRadius = (station.pdPower[timeNumber]*10);
-		sampleCircle.m_fRadius = 15 * station.volGrade;
+		sampleCircle.m_fRadius = 10 * station.volGrade;
 		//sampleCircle.m_fRadius = 30000;
 		sampleCircle.relatedBus = i;
 		if (station.volGrade == 220)
@@ -2318,7 +2322,7 @@ void COSMCtrlAppView::UpdateStations(int timeNumber)
 			sampleCircle.m_colorBrush = D2D1::ColorF(0, 0, 1, 50);
 #endif
 			sampleCircle.m_nMinZoomLevel = 0;
-			sampleCircle.m_nMaxZoomLevel = 11;
+			sampleCircle.m_nMaxZoomLevel = 17;
 		}
 		else if (station.volGrade == 110)
 		{
@@ -2328,7 +2332,7 @@ void COSMCtrlAppView::UpdateStations(int timeNumber)
 			sampleCircle.m_colorBrush = D2D1::ColorF(200, 0, 0, 50);
 #endif
 			sampleCircle.m_nMinZoomLevel = 9;
-			sampleCircle.m_nMaxZoomLevel = 11;
+			sampleCircle.m_nMaxZoomLevel = 17;
 		}
 		else if (station.volGrade == 35)
 		{
@@ -2489,12 +2493,12 @@ void COSMCtrlAppView::UpdateStations(int timeNumber)
 			if (branch.volGrade == 220)
 			{
 				samplePolyline.m_nMinZoomLevel = 0;
-				samplePolyline.m_nMaxZoomLevel = 11;
+				samplePolyline.m_nMaxZoomLevel = 17;
 			}
 			else if (branch.volGrade == 110)
 			{
 				samplePolyline.m_nMinZoomLevel = 9;
-				samplePolyline.m_nMaxZoomLevel = 11;
+				samplePolyline.m_nMaxZoomLevel = 17;
 			}
 			else if (branch.volGrade == 35)
 			{
@@ -2563,4 +2567,194 @@ void COSMCtrlAppView::UpdateStations(int timeNumber)
 	m_ctrlOSM.m_Polylines.Add(eBLine);
 
 	end draw marker for vehicle*/
+}
+
+
+void COSMCtrlAppView::PowerFlowArrow(std::vector<float> v)
+{
+	int size = m_ctrlOSM.m_Polylines.size();
+	float fLon, fLat, tLon, tLat;
+	float x, y,x1, y1, x2, y2, x3, y3, x4, y4;
+	float slope;
+	float dis12, dis;
+	int s;
+
+	for (int i = 0; i < size-1; i++)
+	{
+		float pPower = v[2 * i];
+		float qPower = v[2 * i + 1];
+		if (pPower>=0)
+		{
+			COSMCtrlPolyline&polyLine = m_ctrlOSM.m_Polylines[i];
+			fLon = polyLine.fLon;
+			fLat = polyLine.fLat;
+			tLon = polyLine.tLon;   
+			tLat = polyLine.tLat;
+
+			x = (fLon + tLon) / 2;
+			y = (fLat + tLat) / 2;
+			s = sign(x - fLon);
+			dis = sqrt((fLon - tLon)*(fLon - tLon) + (fLat - tLat)*(fLat - tLat));
+			slope = (y - fLat) / (x - fLon);
+			x1 = x + m_offsetlevel*dis / sqrt(1 + slope * slope)*s;
+			y1 = y + m_offsetlevel*dis / sqrt(1 + slope * slope) * slope*s;
+			x2 = x1 - 0.05*s* 0.1 / sqrt(1 + slope * slope) * 3;
+			y2 = y1 - 0.05*s* 0.1 / sqrt(1 + slope * slope) * slope * 3;
+
+			dis12 = sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
+			x3 = x2 + (x1 - x2)*abs(slope);
+			x4 = 2 * x2 - x3;
+			y3 = (x2 - x3) / slope + y2;
+			y4 = 2 * y2 - y3;
+
+			//polygon for arrow
+			COSMCtrlPolygon samplePolygon;
+			COSMCtrlNode tempPosition = COSMCtrlNode(x1, y1);
+			samplePolygon.m_Nodes.push_back(tempPosition);
+			tempPosition = COSMCtrlNode(x3, y3);
+			samplePolygon.m_Nodes.push_back(tempPosition);
+			tempPosition = COSMCtrlNode(x4, y4);
+			samplePolygon.m_Nodes.push_back(tempPosition);
+#ifdef COSMCTRL_NOD2D
+			samplePolygon.m_DashCap = Gdiplus::DashCapRound;
+			samplePolygon.m_EndCap = Gdiplus::LineCapSquareAnchor;
+			samplePolygon.m_StartCap = Gdiplus::LineCapArrowAnchor;
+			samplePolygon.m_LineJoin = Gdiplus::LineJoinBevel;
+			samplePolygon.m_colorPen = Gdiplus::Color(0, 0, 255);
+#else
+			samplePolygon.m_DashCap = D2D1_CAP_STYLE_ROUND;
+			samplePolygon.m_EndCap = D2D1_CAP_STYLE_SQUARE;
+			samplePolygon.m_StartCap = D2D1_CAP_STYLE_TRIANGLE;
+			samplePolygon.m_LineJoin = D2D1_LINE_JOIN_BEVEL;
+			samplePolygon.m_colorPen = D2D1::ColorF(0, 255, 0);
+			//if (totalFlow > branch.capacity)
+			//	samplePolygon.m_colorBrush = D2D1::ColorF(255, 0, 0);
+#endif
+			samplePolygon.m_fDashOffset = 3;
+			samplePolygon.m_fLinePenWidth = 1;
+
+			samplePolygon.m_nMinZoomLevel = 0;
+			samplePolygon.m_nMaxZoomLevel = 17;
+			/*if (polyLine.voltage == 10)
+			{
+			samplePolygon.m_nMinZoomLevel = 13;
+			samplePolygon.m_nMaxZoomLevel = 18;
+			}*/
+
+
+			samplePolygon.m_sToolTipText.Format(_T("The Power Flow is %f + j%f MVA"), pPower, qPower);
+			samplePolygon.m_bDraggable = FALSE; //Allow the polygon to be draggable
+			samplePolygon.m_bEditable = TRUE; //Allow the polygon to be editable
+			m_ctrlOSM.m_Polygons.push_back(samplePolygon);
+		}
+		else
+		{
+			COSMCtrlPolyline&polyLine = m_ctrlOSM.m_Polylines[i];
+			fLon = polyLine.fLon;
+			fLat = polyLine.fLat;
+			tLon = polyLine.tLon;
+			tLat = polyLine.tLat;
+
+			x = (fLon + tLon) / 2;
+			y = (fLat + tLat) / 2;
+			s = sign(x - fLon);
+			slope = (y - fLat) / (x - fLon);
+			dis = sqrt((fLon - tLon)*(fLon - tLon) + (fLat - tLat)*(fLat - tLat));
+			x1 = x - m_offsetlevel*dis / sqrt(1 + slope * slope)*s;
+			y1 = y - m_offsetlevel*dis / sqrt(1 + slope * slope) * slope*s;
+			x2 = x1 + 0.05*s*  0.1 / sqrt(1 + slope*slope) * 3;
+			y2 = y1 + 0.05*s* 0.1 / sqrt(1 + slope*slope) * slope * 3;
+
+			dis12 = sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
+			x3 = x2 + (x1 - x2)*abs(slope);
+			x4 = 2 * x2 - x3;
+			y3 = (x2 - x3) / slope + y2;
+			y4 = 2 * y2 - y3;
+
+			//polygon for arrow
+			COSMCtrlPolygon samplePolygon;
+			COSMCtrlNode tempPosition = COSMCtrlNode(x1, y1);
+			samplePolygon.m_Nodes.push_back(tempPosition);
+			tempPosition = COSMCtrlNode(x3, y3);
+			samplePolygon.m_Nodes.push_back(tempPosition);
+			tempPosition = COSMCtrlNode(x4, y4);
+			samplePolygon.m_Nodes.push_back(tempPosition);
+#ifdef COSMCTRL_NOD2D
+			samplePolygon.m_DashCap = Gdiplus::DashCapRound;
+			samplePolygon.m_EndCap = Gdiplus::LineCapSquareAnchor;
+			samplePolygon.m_StartCap = Gdiplus::LineCapArrowAnchor;
+			samplePolygon.m_LineJoin = Gdiplus::LineJoinBevel;
+			samplePolygon.m_colorPen = Gdiplus::Color(0, 0, 255);
+#else
+			samplePolygon.m_DashCap = D2D1_CAP_STYLE_ROUND;
+			samplePolygon.m_EndCap = D2D1_CAP_STYLE_SQUARE;
+			samplePolygon.m_StartCap = D2D1_CAP_STYLE_TRIANGLE;
+			samplePolygon.m_LineJoin = D2D1_LINE_JOIN_BEVEL;
+			samplePolygon.m_colorPen = D2D1::ColorF(0, 255, 0);
+			//if (totalFlow > branch.capacity)
+			//	samplePolygon.m_colorBrush = D2D1::ColorF(255, 0, 0);
+#endif
+			samplePolygon.m_fDashOffset = 3;
+			samplePolygon.m_fLinePenWidth = 1;
+
+			samplePolygon.m_nMinZoomLevel = 0;
+			samplePolygon.m_nMaxZoomLevel = 17;
+			/*if (polyLine.voltage == 10)
+			{
+			samplePolygon.m_nMinZoomLevel = 13;
+			samplePolygon.m_nMaxZoomLevel = 18;
+			}*/
+
+
+			samplePolygon.m_sToolTipText.Format(_T("The Power Flow is %f + j%f MVA"), abs(pPower), qPower);
+			samplePolygon.m_bDraggable = FALSE; //Allow the polygon to be draggable
+			samplePolygon.m_bEditable = TRUE; //Allow the polygon to be editable
+			m_ctrlOSM.m_Polygons.push_back(samplePolygon);
+		}
+		
+
+
+	}
+}
+
+
+void COSMCtrlAppView::Refresh_fake(double f)
+{
+	double zoomlevel = m_ctrlOSM.GetZoom();
+	m_ctrlOSM.SetZoom(zoomlevel + f, TRUE);
+	m_ctrlOSM.SetZoom(zoomlevel, TRUE);
+}
+
+
+void COSMCtrlAppView::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO:  在此添加消息处理程序代码和/或调用默认值
+
+	if (nIDEvent == 1)
+	{
+		if (m_offsetlevel>=0.3)
+		{
+			m_offsetlevel = 0;
+		}
+		m_ctrlOSM.m_Polygons.clear();
+		CMainFrame* pMF = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+		m_offsetlevel += 0.05;
+		PowerFlowArrow(pMF->v_powerdata1);
+		Refresh_fake(0.000000001);
+	}
+
+	__super::OnTimer(nIDEvent);
+}
+
+
+int COSMCtrlAppView::sign(double a)
+{
+	if (a>0)
+	{
+		return 1;
+	}
+	else
+	{
+		return -1;
+	}
 }

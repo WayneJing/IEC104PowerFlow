@@ -65,7 +65,7 @@ void COSMCtrlMapOperationsDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 void COSMCtrlMapOperationsDlg::OnBnClickedStartOperation()
-{
+{ 
   if (UpdateData(TRUE))
   {
     //First thing to do is disable this button and enable the stop operation button
