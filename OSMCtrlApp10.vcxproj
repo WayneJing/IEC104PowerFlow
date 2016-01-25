@@ -887,7 +887,15 @@
     <ClInclude Include="OSMCtrlTimerEventHandler.h" />
     <ClInclude Include="OSMMyStruct.h" />
     <ClInclude Include="PowerDataView.h" />
-    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Resource.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Release (GDI+)|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug (GDI+)|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (GDI+)|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Debug (GDI+)|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="SearchDlg.h" />
     <ClInclude Include="SearchResultsDlg.h" />
     <ClInclude Include="stdafx.h" />
