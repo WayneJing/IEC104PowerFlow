@@ -5,7 +5,7 @@
 #define IDD_ABOUTBOX                    100
 #define IDD_TILE_PROPERTIES             101
 #define IDD_IPVIEW                      104
-#define IDD_POWERDATAVIEW               105 
+#define IDD_POWERDATAVIEW               105  
 #define IDD_IECSHOWVIEW                 106
 #define IDR_MAINFRAME                   128
 #define IDR_OSMCtrlAppTYPE              129
