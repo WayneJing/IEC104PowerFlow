@@ -264,7 +264,7 @@ History: PJN / 17-12-2009 1. Addition of a SetCenterPosition override method whi
                           6. Reworked the code to use the author's WinHTTPWrappers classes for downloading in a truly async manner
                           7. Reworked all the OSMCtrl classes to use std::vector instead of MFC's CArray
                           8. Updated text on copyright control to refer to the new ODbL license for OpenStreetMap
-                          9. Removed defunct Osmarender tile provider   
+                          9. Removed defunct Osmarender tile provider
                           10. Updated the URL used for the Mapquest Open Aerial Tile Provider as per http://developer.mapquest.com/web/products/open/map/
                           11. Updated the URL used for the OpenCycleMap Tile Provider as per http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
          PJN / 01-12-2013 1. Updated to use new versions of the author's MFCSensor, EnumSerialPorts and WinHTTPWrappers classes.
