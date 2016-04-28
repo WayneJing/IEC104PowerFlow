@@ -2049,7 +2049,7 @@ STDMETHODIMP COSMCtrlAppView::OnLeave(__RPC__in_opt REFSENSOR_ID sensorID)
 
 STDMETHODIMP COSMCtrlAppView::OnDataUpdated(__RPC__in_opt ISensor* /*pSensor*/, __RPC__in_opt ISensorDataReport* pNewData)
 {
-  //Attach our helper class which makes working with location data reports easier
+  //Attacha our helper class which makes working with location data reports easier
   SensorAPI::CLocationSensorDataReport gpsDataReport(pNewData);
 
   //Get the data report timestamp
